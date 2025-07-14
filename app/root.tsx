@@ -4,6 +4,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useMatches,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 
@@ -23,13 +24,37 @@ export const links: LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
+
+  let matches = useMatches();
+
+  // Pick the dynamic product route by its route ID:
+  let prodMatch = matches.find(
+    m => m.id === "routes/product.$productName"
+  );
+
+  // Or, detect by loader data:
+  // let prodMatch = matches.find(m => m.data?.singlePreloadImageUrl);
+
+  let singleUrl = prodMatch?.data?.singlePreloadImageUrl?.url;
+  let productName = prodMatch?.params.productName;
+
   return (
     <html lang="en">
       <head>
+      {singleUrl && (
+          <link
+            key={`preload-${productName}`}
+            rel="preload"
+            as="image"
+            href={singleUrl}
+            fetchPriority="high"
+          />
+        )}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
+      
       </head>
       <body>
         {children}
