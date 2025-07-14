@@ -11,6 +11,8 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 const ABORT_DELAY = 5_000;
 
@@ -48,11 +50,14 @@ function handleBotRequest(
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
+      <Provider store={store}>
       <RemixServer
         context={remixContext}
         url={request.url}
         abortDelay={ABORT_DELAY}
-      />,
+      />
+      </Provider>
+      ,
       {
         onAllReady() {
           shellRendered = true;

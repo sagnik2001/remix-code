@@ -1,0 +1,19 @@
+export enum RequestTypes {
+    GET = 'GET',
+    POST = 'POST',
+    PUT = 'PUT',
+    DELETE = 'DELETE',
+    PATCH = 'PATCH'
+  }
+  
+  export enum APITags {
+    GET_PROFILE = 'GET_PROFILE',
+    GET_ADDRESSES = 'GET_ADDRESSES',
+    GET_WISHLIST = 'GET_WISHLIST',
+    GET_CART = 'GET_CART',
+    GET_ORDER = 'GET_ORDER',
+    GET_ITEM_DETAILS = 'GET_ITEM_DETAILS'
+  }
+  
+  export const API_TAGS = [APITags.GET_PROFILE, APITags.GET_ADDRESSES, APITags.GET_WISHLIST, APITags.GET_CART, APITags.GET_ORDER, APITags.GET_WISHLIST, APITags.GET_ITEM_DETAILS];
+  
