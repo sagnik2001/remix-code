@@ -5,6 +5,11 @@
 html,
 body {
   @apply bg-white dark:bg-gray-950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
 
   @media (prefers-color-scheme: dark) {
     color-scheme: dark;

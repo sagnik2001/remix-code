@@ -100,7 +100,7 @@ export default function ProductDetailsPage() {
     ...props
   } = useLoaderData<typeof loader>();
 
-  console.log("hey")
+  console.log("hey",productData)
 
   return (
     <>

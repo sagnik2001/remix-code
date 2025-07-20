@@ -24,3 +24,16 @@ export const fetchDefaultProductSize = ({ variations } : any) => {
 
   return { defaultSize: defaultSize, isOutOfStock: isOutOfStock };
 };
+
+
+export const getParsedCarousalData = (data: any[]) =>
+  data?.map((item: any) => ({
+    url: item,
+    type: "image",
+  }));
+
+export const getParsedVideoCarousalData = (data: any[]) =>
+  data?.map((item: any) => ({
+    ...item,
+    type: "video",
+  }));
