@@ -8,6 +8,7 @@
     "dev": "remix vite:dev",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "remix-serve ./build/server/index.js",
+    "package": "rm -rf .amplify-hosting && mkdir -p .amplify-hosting && cp -r build public node_modules package.json .amplify-hosting",
     "typecheck": "tsc"
   },
   "dependencies": {

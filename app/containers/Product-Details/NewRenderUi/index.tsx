@@ -111,8 +111,8 @@ const NewRenderUi = ({
     }, [carousel_data, currentIndex]);
 
 
-    const onCarouselImageChange = () => {
-
+    const onCarouselImageChange = (index : number) => {
+      setCurrentIndex(index);
     }
 
     const customRenderItem = useCallback(
