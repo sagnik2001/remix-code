@@ -9,6 +9,8 @@ import { startTransition, StrictMode } from "react";
 import { hydrateRoot } from "react-dom/client";
 import { store }         from './store';
 import { Provider } from "react-redux";
+import 'dotenv/config';
+
 
 startTransition(() => {
   hydrateRoot(
