@@ -37,9 +37,7 @@ import 'dotenv/config';
 
 const _env = process.env;
 
-export const API_DOMAIN = _env.NEXT_PUBLIC_REACT_APP_API_DOMAIN 
-  ?? _env.VITE_API_DOMAIN 
-  ?? (() => { throw new Error('API_DOMAIN is not defined'); })();
+export const API_DOMAIN = 'https://stageapi.newme.asia/web/';
 
 export const WEB_URL = _env.NEXT_PUBLIC_REACT_APP_WEB_URL 
   ?? _env.VITE_WEB_URL 
