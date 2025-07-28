@@ -26,7 +26,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     }
   );
 
-  console.log(data)
+  console.log(data,'data')
 
   const productDetails = data?.product_details ?? [];
   // if (productDetails.length === 0) {
@@ -43,13 +43,13 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const { isOutOfStock } = fetchDefaultProductSize({ variations });
 
   // Prepare single preload image
-  const defaultImageUrl = productDetails[0].image_url;
-  const imageGalleryMeta = productDetails[0].image_gallery_metadata?.[0] || [];
-  const imageGalleryPrefix = productDetails[0].image_gallery_prefixes?.[0] || '';
-  const baseUrl = productDetails[0].base_image_url || '';
+  const defaultImageUrl = productDetails[0]?.image_url;
+  const imageGalleryMeta = productDetails[0]?.image_gallery_metadata?.[0] || [];
+  const imageGalleryPrefix = productDetails[0]?.image_gallery_prefixes?.[0] || '';
+  const baseUrl = productDetails[0]?.base_image_url || '';
   const optimized = getOptimizedImageUrl(imageGalleryMeta, defaultImageUrl, 380);
   const singlePreloadImageUrl = optimized
-    ? { ...optimized, url: `${baseUrl}${imageGalleryPrefix}${optimized.url}` }
+    ? { ...optimized, url: `${baseUrl}${imageGalleryPrefix}${optimized?.url}` }
     : null;
 
   // Set any cookies returned from API
@@ -61,10 +61,10 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   return json(
     {
       isOutOfStock,
-      show_pdp_change_v2: data.product_details[0]?.show_pdp_change_v2 || false,
-      notifyOosProduct: data.notify_oos_product || 0,
-      showPdpOffer: data.show_pdp_offer || 0,
-      showNewReviewUi: data.show_new_review_ui || false,
+      show_pdp_change_v2: data?.product_details[0]?.show_pdp_change_v2 || false,
+      notifyOosProduct: data?.notify_oos_product || 0,
+      showPdpOffer: data?.show_pdp_offer || 0,
+      showNewReviewUi: data?.show_new_review_ui || false,
       productData: productDetails,
       singlePreloadImageUrl
     },
