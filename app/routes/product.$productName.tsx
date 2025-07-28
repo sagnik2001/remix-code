@@ -29,14 +29,14 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   console.log(data)
 
   const productDetails = data?.product_details ?? [];
-  if (productDetails.length === 0) {
-    throw redirect('/shop', {
-      status: 308,
-      headers: {
-        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
-      }
-    });
-  }
+  // if (productDetails.length === 0) {
+  //   throw redirect('/shop', {
+  //     status: 308,
+  //     headers: {
+  //       'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0'
+  //     }
+  //   });
+  // }
 
   // Determine stock status
   const { variations } = productDetails[0];
