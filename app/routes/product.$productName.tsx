@@ -39,7 +39,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   // }
 
   // Determine stock status
-  const { variations } = productDetails[0];
+  const { variations } = productDetails[0] ?? {};
   const { isOutOfStock } = fetchDefaultProductSize({ variations });
 
   // Prepare single preload image
