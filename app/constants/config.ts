@@ -39,9 +39,7 @@ const _env = process.env;
 
 export const API_DOMAIN = 'https://stageapi.newme.asia/web/';
 
-export const WEB_URL = _env.NEXT_PUBLIC_REACT_APP_WEB_URL 
-  ?? _env.VITE_WEB_URL 
-  ?? (() => { throw new Error('WEB_URL is not defined'); })();
+export const WEB_URL = 'https://stage.newme.asia/';
 
 export const ENV = _env.NEXT_PUBLIC_REACT_APP_ENV 
   ?? _env.VITE_ENV 
