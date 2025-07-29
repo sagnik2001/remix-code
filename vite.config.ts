@@ -24,7 +24,7 @@ export default defineConfig({
   ],
   build: {
     rollupOptions: {
-      external: ["react-intersection-observer","date-fns","react-lottie-player","lottie-react","@radix-ui/react-dialog"],
+      external: ["react-intersection-observer","date-fns","react-lottie-player","lottie-react","@radix-ui/react-dialog","lucide-react","@shadcn/ui"],
     },
   },
 });
