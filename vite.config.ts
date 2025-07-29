@@ -24,7 +24,7 @@ export default defineConfig({
   ],
   build: {
     rollupOptions: {
-      external: ["react-intersection-observer"],
+      external: ["react-intersection-observer","date-fns","react-lottie-player"],
     },
   },
 });
