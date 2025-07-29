@@ -2,6 +2,7 @@ import { lazy, memo, useCallback, useMemo, useState } from "react"
 import ProductPriceInfo from "../ProductPriceInfo"
 import { RootState, useAppSelector } from "~/store";
 import { isNonEmptyObject } from "~/utils/checks";
+import styles from "../../styles";
 
 const PriceDropSection = lazy(() => import('../PriceDropSection'));
 const OffersAndCouponsModule = lazy(() => import('../OfferAndCoupons'));
@@ -11,6 +12,12 @@ const ProductInfoWrapper = ({product,notifyOosProduct,
 
     const [selectedSize, setSelectedSize] = useState('')
     const user = useAppSelector((state: RootState) => state?.profile?.user) ?? '';
+    const  {
+        size_remarks: sizeRemarks,
+        color_variants: colorVariants,
+        show_size,
+        disable_size_autoselect,
+      } = product ?? {}
 
 
     const getVariation = useCallback(
@@ -57,6 +64,18 @@ const ProductInfoWrapper = ({product,notifyOosProduct,
                       couponData={product?.coupon_offer_mapping}
                     />
                   )}
+                    <hr style={styles.divider} />
+          {colorVariants?.length > 0 && (
+            <>
+                {/* <ProductColorVariationV2
+                  variations={colorVariants}
+                  product_id={id}
+                  isBottomSheet={isBottomSheet}
+                  isJewellery={isJewellery}
+                /> */}
+              <hr style={{ ...styles.divider, marginTop: '20px' }} />
+            </>
+          )}
         </div>
         </>
     )
