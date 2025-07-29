@@ -22,4 +22,9 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  build: {
+    rollupOptions: {
+      external: ["react-intersection-observer"],
+    },
+  },
 });
