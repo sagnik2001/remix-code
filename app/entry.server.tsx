@@ -103,11 +103,14 @@ function handleBrowserRequest(
   return new Promise((resolve, reject) => {
     let shellRendered = false;
     const { pipe, abort } = renderToPipeableStream(
+      <Provider store={store}>
       <RemixServer
         context={remixContext}
         url={request.url}
         abortDelay={ABORT_DELAY}
-      />,
+      />
+      </Provider>
+      ,
       {
         onShellReady() {
           shellRendered = true;

@@ -205,6 +205,7 @@ module.exports = {
         sans: ['var(--font-jakarta)'],
         balgin: ['var(--font-balgin-display-semi-bold)'],
         balgin_regular: ['var(--font-balgin-regular)'],
+        jakarta: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
 
       boxShadow: {

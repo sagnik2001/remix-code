@@ -13,7 +13,6 @@ import React, {
     Link,
     useNavigation,
   } from "@remix-run/react"; // ← Remix equivalents
-  import { GTM_ID } from "@Constants/config";
   import {
     getHoardingURL,
     useLoggedIn,
@@ -21,18 +20,18 @@ import React, {
     verifyUtmParamsChange,
     getWindowCustomLandingPage,
     rand1to10,
-  } from "@Utils/common";
+  } from "~/utils/common";
   import {
     useLazyGetCartItemsQuery,
     useLazyGetCartItemsv2Query,
-  } from "@Containers/Cart/apiSlice";
-  import { useGetProfileMutation } from "@Containers/Profile/apiSlice";
+  } from "~/containers/Cart/apiSlice";
+import { useGetProfileMutation } from "~/containers/Profile/apiSlice";
   import {
     useLazyGetSystemConfigQuery,
     useLazyGetPageConfigQuery,
     useSendUserLocationMutation,
   } from "@Containers/Onboarding/apiSlice";
-  import { RootState, useAppDispatch, useAppSelector } from "@Store/store";
+  import { RootState, useAppDispatch, useAppSelector } from "~/store";
   import { getProductIdsFromCart } from "@Utils/cart";
   import { useGetProductDetailsMutation } from "@Containers/Product-Details/apiSlice";
   import { addCartItemsToGtmProductList } from "@Utils/gtm";

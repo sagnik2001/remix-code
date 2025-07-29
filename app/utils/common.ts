@@ -18,3 +18,16 @@ export const getProductCanonicalUrl = (productName: string) => {
   
     return `${WEB_URL}product/${productName}`
   };
+
+  export const scrollToContainer = (id, options) => id &&
+  document.querySelector(id)?.scrollIntoView(options ?? { behavior: 'smooth', block: 'start', inline:'start'  });
+
+export const scrollToContainerWithOffset=(id,offset=100)=>{
+  if(id){
+    const element = id && document.querySelector(`#${id}`);
+    if (element) {
+      const top = element.getBoundingClientRect().top + window.scrollY - offset ;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  }
+}

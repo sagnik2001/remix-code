@@ -17,7 +17,7 @@ import { baseApi } from '~/services/api';
 // import { shopSlice } from '@Containers/Shop/shopSlice';
 // import { signupSlice } from '@Containers/SignupBottomSheet/signupBottomSheetSlice';
 // import { storesSlice } from '@Containers/Stores/storesSlice';
-// import { layoutSlice } from '@Layouts/layoutSlice';
+import { layoutSlice } from '~/containers/Layout/layoutSlice';
 // import { recommendedProductsSlice } from '@Components/RecommendedProducts/recommendedProductsSlice';
 // import { recommendationSheetSlice } from '@Containers/RecommendationSheet/recommendationSheetSlice';
 // import { productDetailsSlice } from '@Containers/Product-Details/productDetailsSlice';
@@ -49,7 +49,7 @@ const rootReducer = combineReducers({
 //   shop: shopSlice.reducer,
 //   signupSlice: signupSlice.reducer,
 //   stores: storesSlice.reducer,
-//   layout: layoutSlice.reducer,
+  layout: layoutSlice.reducer,
 //   blackFridayReg: blackFridaySlice.reducer,
 //   recommededProducts: recommendedProductsSlice.reducer,
 //   recommedationSheet: recommendationSheetSlice.reducer,
